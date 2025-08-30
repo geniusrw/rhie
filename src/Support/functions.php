@@ -27,7 +27,9 @@ if (!\function_exists(__NAMESPACE__ . '\\config')) {
             Env::load();
 
             // Resolve project root and config path
-            $basePath = \dirname(__DIR__, 2);
+            $basePath = \defined('GENIUS_RHIE_BASE_PATH')
+            ? GENIUS_RHIE_BASE_PATH
+            : \dirname(__DIR__, 2);
 
             $repo = new ConfigRepository($basePath . '/config');
         }

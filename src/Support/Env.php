@@ -19,7 +19,9 @@ final class Env
 
         // Allow the app to override base path if needed
         if ($basePath === null) {
-            $basePath = \dirname(__DIR__, 2); // project root if src/ is directly under it
+            $basePath = \defined('GENIUS_RHIE_BASE_PATH')
+            ? GENIUS_RHIE_BASE_PATH
+            :\dirname(__DIR__, 2); // project root if src/ is directly under it
         }
         
         if (\is_string($basePath) && \file_exists($basePath.'/.env')) {
