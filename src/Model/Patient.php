@@ -2,6 +2,7 @@
 namespace Genius\Rhie\Model;
 
 class Patient {
+    public $id;
     public array $contacts = [];
     public array $addresses = [];
     public array $identifiers = [];

@@ -5,7 +5,10 @@
     "autoload": {
         "psr-4": {
             "Genius\\Rhie\\": "src/"
-        }
+        },
+        "files": [
+          "src/Support/functions.php"
+        ]
     },
     "authors": [
         {
@@ -14,5 +17,8 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "symfony/http-client": "^7.3",
+        "vlucas/phpdotenv": "^5.6"
+    }
 }
