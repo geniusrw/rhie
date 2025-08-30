@@ -1,5 +1,5 @@
 <?php
-namespace Genius\Rhie\Model;
+namespace Geniusrw\Rhie\Model;
 
 class Identifier {
     private $type;

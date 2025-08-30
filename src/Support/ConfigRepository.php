@@ -1,5 +1,5 @@
 <?php
-namespace Genius\Rhie\Support;
+namespace Geniusrw\Rhie\Support;
 
 final class ConfigRepository
 {

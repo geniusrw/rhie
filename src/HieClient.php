@@ -1,15 +1,15 @@
 <?php
-namespace Genius\Rhie;
+namespace Geniusrw\Rhie;
 
 use DateTime;
-use Genius\Rhie\Model\Address;
-use Genius\Rhie\Model\Contact;
-use Genius\Rhie\Model\Patient;
-use Genius\Rhie\Model\Identifier;
-use Genius\Rhie\Model\Telecom;
+use Geniusrw\Rhie\Model\Address;
+use Geniusrw\Rhie\Model\Contact;
+use Geniusrw\Rhie\Model\Patient;
+use Geniusrw\Rhie\Model\Identifier;
+use Geniusrw\Rhie\Model\Telecom;
 use Symfony\Component\HttpClient\HttpClient;
 
-use function Genius\Rhie\Support\config;
+use function Geniusrw\Rhie\Support\config;
 
 class HieClient {
 

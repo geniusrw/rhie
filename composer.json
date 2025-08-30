@@ -1,10 +1,10 @@
 {
-    "name": "genius/rhie",
+    "name": "geniusrw/rhie",
     "description": "PHP Package to integration with Rwanda HIE platform",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Genius\\Rhie\\": "src/"
+            "Geniusrw\\Rhie\\": "src/"
         },
         "files": [
           "src/Support/functions.php"

@@ -12,7 +12,7 @@ class ComposerStaticInit868c73eafd245e42b798bbc9ad3c3352
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
-        '68b39a78b381217b0baa4052c2ac5132' => __DIR__ . '/../..' . '/src/Support/functions.php',
+        '32b9ff7b11e8a20d639840c8db9e3a23' => __DIR__ . '/../..' . '/src/Support/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -35,7 +35,7 @@ class ComposerStaticInit868c73eafd245e42b798bbc9ad3c3352
         'G' => 
         array (
             'GrahamCampbell\\ResultType\\' => 26,
-            'Genius\\Rhie\\' => 12,
+            'Geniusrw\\Rhie\\' => 14,
         ),
         'D' => 
         array (
@@ -88,7 +88,7 @@ class ComposerStaticInit868c73eafd245e42b798bbc9ad3c3352
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
-        'Genius\\Rhie\\' => 
+        'Geniusrw\\Rhie\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

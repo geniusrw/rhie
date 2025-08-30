@@ -1,5 +1,5 @@
 <?php
-use function Genius\Rhie\Support\env;
+use function Geniusrw\Rhie\Support\env;
 
 return [
     'env' => env('HIE_ENV', 'production'),
