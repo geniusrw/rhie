@@ -1,0 +1,18 @@
+{
+    "name": "genius/rhie",
+    "description": "PHP Package to integration with Rwanda HIE platform",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Genius\\Rhie\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ruberandinda Patience",
+            "email": "ruberandindap@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
