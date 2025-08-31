@@ -92,6 +92,10 @@ class HieClient {
                 }
                 $patient->gender = $patient_data['resource']['gender'];
                 $patient->dob = $patient_data['resource']['birthDate'];
+
+                //Adding Religion if available
+
+                //Adding Occupation if available
             } else {
                 // No Data found
                 $patient = static::checkUpid($id, $type);
