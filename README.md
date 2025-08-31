@@ -1,8 +1,8 @@
 # RHIE Integration with PHP application (Compatible with Laravel)
 
 ## Installation
-Run the following command to install the package using composer
-`composer require geniusrw/rhie`
+Run the following command to install the package using composer\
+`composer require geniusrw/rhie`\
 or download the [zip](https://github.com/geniusrw/rhie/releases/latest) from github
 
 ## Setup the package
