@@ -27,7 +27,7 @@ $patient = HieClient::getUpid("xxxxxxxxxxxxxxxx", "NID");
 ```
 The above code will return the Patient RhiePatient Object or null when the identifier is not found
 
-** Supported Document Type **
+**Supported Document Type**
 * NID
 * NID_APPLICATION
 * UPI(stands for UPID)
