@@ -31,3 +31,28 @@ The above code will return the Patient RhiePatient Object or null when the ident
 * NID
 * NID_APPLICATION
 * UPI(stands for UPID)
+
+### Requesting Insurance Portal Information
+
+1. Make sure the .env file hold required params
+
+```
+RHIP_URL=URL_PREFIX
+RHIP_KEY=APP_KEY
+RHIP_ORIGIN=APP_ORIGIN
+```
+Those parameters should be marched with real values shared from RHIP Team.
+
+2. Check for CBHI Elibility
+
+```
+<?php
+
+require_once "vendor/autoload.php";
+
+use Geniusrw\Rhie\Rhip\RhipClient;
+
+define("GENIUS_RHIE_BASE_PATH", __DIR__);
+
+$patient = RhipClient::checkCbhiEligibity("xxxxxxxxxxxxxxxx");
+```
