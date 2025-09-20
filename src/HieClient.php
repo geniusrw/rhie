@@ -93,9 +93,26 @@ class HieClient {
                 $patient->gender = $patient_data['resource']['gender'];
                 $patient->dob = $patient_data['resource']['birthDate'];
 
-                //Adding Religion if available
+                if(array_key_exists("extension", $patient_data['resource'])){
+                    foreach($patient_data['resource']['extension'] AS $extension){
+                        if(array_key_exists("url", $extension)){
+                            //Adding Religion if available
+                            if(preg_match("/\/patient-religion$/", $extension['url'])){
+                                $patient->religion = $extension['valueString']??"";
+                            }
 
-                //Adding Occupation if available
+                            //Adding Occupation if available 
+                            if(preg_match("/\/patient-profession$/", $extension['url'])){
+                                $patient->ocupation = $extension['valueString']??"";
+                            }
+
+                            //
+                            if(preg_match("/\/patient-registration_date$/", $extension['url'])){
+                                $patient->registered_on = $extension['valueDate']??"";
+                            }
+                        }
+                    }
+                }
             } else {
                 // No Data found
                 $patient = static::checkUpid($id, $type);

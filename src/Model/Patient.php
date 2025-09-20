@@ -15,4 +15,5 @@ class Patient {
 
     public $religion;
     public $ocupation;
+    public $registered_on;
 }
