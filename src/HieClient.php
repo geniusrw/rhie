@@ -10,6 +10,7 @@ use Geniusrw\Rhie\Model\Telecom;
 use Symfony\Component\HttpClient\HttpClient;
 
 use function Geniusrw\Rhie\Support\config;
+use function Geniusrw\Rhie\Support\parseFlexibleDate;
 
 class HieClient {
 
@@ -187,7 +188,9 @@ class HieClient {
                 $patient->gender = $content['data']['sex'];
 
                 //Add Dob
-                $patient->dob = (new \DateTime($content['data']['dateOfBirth']))->format("Y-m-d");
+                //If the Date of birth is of the format DD/MM/YYYY
+
+                $patient->dob = parseFlexibleDate($content['data']['dateOfBirth']);
                 return $patient;
             }
         }
