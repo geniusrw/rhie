@@ -1,6 +1,8 @@
 <?php
 namespace Geniusrw\Rhie\Support;
 
+use DateTime;
+
 if (!\function_exists(__NAMESPACE__ . '\\env')) {
     /**
      * Get an environment variable with a default.
@@ -85,7 +87,4 @@ if(!\function_exists(__NAMESPACE__ . '\\parseFlexibleDate')) {
         // If all else fails, return null or throw exception
         return null;
     }
-
-// Usage
-// $formattedDate = ;
 }
