@@ -1,5 +1,8 @@
 /vendor
 .env
-index.php
+#index.php
 sample_patient.json
-test_insurance.php
+#test_insurance.php
+
+# Remove MacOS file
+.DS_Store

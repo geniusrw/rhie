@@ -2,17 +2,17 @@
 namespace Geniusrw\Rhie\Model;
 
 class Identifier {
-    private $type;
-    private $value;
+    public $system;
+    public $value;
 
     public function __construct($type, $value)
     {
-        $this->type = $type;
+        $this->system = $type;
         $this->value = $value;
     }
 
     public function getType(){
-        return $this->type;
+        return $this->system;
     }
 
     public function getValue(){
