@@ -2,12 +2,12 @@
 namespace Geniusrw\Rhie\Model;
 
 class Telecom {
-    public $type;
+    public $system;
     public $value;
 
-    public function __construct($type, $value)
+    public function __construct($system, $value)
     {
-        $this->type = $type;
+        $this->system = $system;
         $this->value = $value;
     }
 }

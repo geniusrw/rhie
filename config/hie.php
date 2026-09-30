@@ -6,6 +6,7 @@ return [
     'url' => env('HIE_URL',),
     'username' => env('HIE_USERNAME'),
     'password' => env('HIE_PASSWORD'),
+    'fosaid' => env('HIE_FOSAID'),
 
     'rhip' => [
         'url' => env('RHIP_URL'),

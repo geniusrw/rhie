@@ -1,6 +1,8 @@
 <?php
 namespace Geniusrw\Rhie\Support;
 
+use DateTime;
+
 if (!\function_exists(__NAMESPACE__ . '\\env')) {
     /**
      * Get an environment variable with a default.
@@ -35,5 +37,54 @@ if (!\function_exists(__NAMESPACE__ . '\\config')) {
         }
 
         return $repo->get($key, $default);
+    }
+}
+
+if(!\function_exists(__NAMESPACE__ . '\\parseFlexibleDate')) {
+    function parseFlexibleDate($dateInput) {
+        if (empty($dateInput)) {
+            return null;
+        }
+        
+        // If it's already a DateTime object, just format it
+        if ($dateInput instanceof DateTime) {
+            return $dateInput->format("Y-m-d");
+        }
+        
+        // Common date formats to try
+        $formats = [
+            'Y-m-d',           // 2024-02-13
+            'd/m/Y',           // 13/02/2024
+            'm/d/Y',           // 02/13/2024
+            'd-m-Y',           // 13-02-2024
+            'm-d-Y',           // 02-13-2024
+            'Y/m/d',           // 2024/02/13
+            'd.m.Y',           // 13.02.2024
+            'Y.m.d',           // 2024.02.13
+            'd M Y',           // 13 Feb 2024
+            'd F Y',           // 13 February 2024
+            'M d, Y',          // Feb 13, 2024
+            'F d, Y',          // February 13, 2024
+            'd-M-Y',           // 13-Feb-2024
+            'Y-m-d H:i:s',     // 2024-02-13 14:30:00
+            'd/m/Y H:i:s',     // 13/02/2024 14:30:00
+        ];
+        
+        // Try each format
+        foreach ($formats as $format) {
+            $date = DateTime::createFromFormat($format, $dateInput);
+            if ($date !== false && $date->format($format) === $dateInput) {
+                return $date->format("Y-m-d");
+            }
+        }
+        
+        // If none of the specific formats work, try strtotime as fallback
+        $timestamp = strtotime($dateInput);
+        if ($timestamp !== false) {
+            return date("Y-m-d", $timestamp);
+        }
+        
+        // If all else fails, return null or throw exception
+        return null;
     }
 }

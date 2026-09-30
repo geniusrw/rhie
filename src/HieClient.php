@@ -10,6 +10,7 @@ use Geniusrw\Rhie\Model\Telecom;
 use Symfony\Component\HttpClient\HttpClient;
 
 use function Geniusrw\Rhie\Support\config;
+use function Geniusrw\Rhie\Support\parseFlexibleDate;
 
 class HieClient {
 
@@ -133,7 +134,7 @@ class HieClient {
                 ],
                 'auth_basic' => [config("hie.username"), config("hie.password")],
                 "body" => json_encode([
-                    "fosaid" => "0022",
+                    "fosaid" => config("hie.fosaid"),
                     "documentType" => $type,
                     "documentNumber" => $value
                 ])
@@ -155,6 +156,7 @@ class HieClient {
                 // Add Identifiers
                 if(array_key_exists("upi", $content['data'])){
                     $patient->identifiers[] = new Identifier("UPI", $content['data']['upi']);
+                    $patient->id = $content['data']['upi'];
                 }
                 if(array_key_exists("applicationNumber", $content['data'])){
                     $patient->identifiers[] = new Identifier("NID_APPLICATION_NUMBER", $content['data']['applicationNumber']);
@@ -187,9 +189,36 @@ class HieClient {
                 $patient->gender = $content['data']['sex'];
 
                 //Add Dob
-                $patient->dob = (new \DateTime($content['data']['dateOfBirth']))->format("Y-m-d");
+                //If the Date of birth is of the format DD/MM/YYYY
+
+                $patient->dob = parseFlexibleDate($content['data']['dateOfBirth']);
                 return $patient;
             }
         }
+    }
+
+    /***
+     * 
+     * @param $data
+     * return void
+     * 
+     */ 
+    public static function sendToCR(array $data) : bool{
+        $client = HttpClient::create(); 
+
+        $response = $client->request(
+            'POST',
+            config('hie.url'). '/clientregistry/Patient',
+            [
+                'auth_basic' => [config('hie.username'), config('hie.password')],
+                'json' => $data
+            ]
+        );
+
+        $statusCode = $response->getStatusCode();
+        if(!in_array($statusCode, [200, 201])){
+            return false;
+        }
+        return true;
     }
 }
